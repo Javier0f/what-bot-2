@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+@keyframes rotationLoop {
+    100% { rotate: 360deg; }
+}
+
+:root{
+    --Lapis-lazuli: #23272B;
+    --Aero: #EAEDF0;
+}
+
+body{
+    background-color: var(--Lapis-lazuli);
+}
+
+main{
+    border-radius: 20px;
+    height: 300px;
+    width: 300px;
+    margin: 20% 35%;
+    padding: 10px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Aero);
+}
+
+main canvas{
+    margin: 5px 12px;
+    /* outline: 1px solid red; */
+    border-radius: 20px;
+}
+
+main img{
+    position: relative;
+    left: 8rem;
+    top: -2rem;
+    width: 50px;
+    animation: rotationLoop 2s infinite ;
+    animation-timing-function: linear;
+    /* outline: 1px solid red; */
+}

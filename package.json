@@ -1,0 +1,23 @@
+{
+  "name": "proyecto1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./src/app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^24.2.0",
+    "openai": "^3.2.1",
+    "qrcode": "^1.5.3",
+    "request": "^2.88.2",
+    "whatsapp-web.js": "^1.19.5"
+  },
+  "devDependencies": {
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}

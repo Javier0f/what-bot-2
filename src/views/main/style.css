@@ -1,0 +1,40 @@
+main{
+    position: absolute;
+    right: 0.5%;
+    display: flexbox;
+    justify-content: center;
+    outline: 2px solid #f4f6f7;
+    margin: 20px;
+    padding: 10px 20px;
+    width: 360px;
+    height: 720px;
+    overflow-y: auto;
+    border-radius: 10px;
+    background-color: #f4f6f7;
+    box-shadow: 10px 10px 15px #b1b1b148;
+}
+
+main::-webkit-scrollbar{
+    height: 2px;
+    background-color: #f4f6f7;
+    display: none;
+}
+
+main img {
+    width: 285px;
+    border-radius: 10px;
+}
+
+aside{
+    position: absolute;
+    margin: 20px 10px;
+    padding: 10px 20px;
+    height: 720px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: #f4f6f7;
+    box-shadow: 10px 10px 15px #b1b1b159;
+    box-shadow: 10px 10px 15px #b1b1b148;
+    box-sizing:border-box;
+    /* outline: 1px solid red; */
+}
