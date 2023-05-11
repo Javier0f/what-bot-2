@@ -2,13 +2,13 @@ async function interfaz(message,client,webContentsSend){
 
     let msg = {
         constact: await message.getContact(),
-        chat: await message.getChat(),
+        chat: msg.isStatus ? {name:'Status'} : await message.getChat(),
         body: message.body
     }
 
     let msg_media = {
         constact: await message.getContact(),
-        chat: await message.getChat(),
+        chat: msg.isStatus ? {name:'Status'} : await message.getChat(),
         body: message.body,
         media: await message.downloadMedia()
     }

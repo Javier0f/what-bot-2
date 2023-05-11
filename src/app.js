@@ -1,7 +1,7 @@
 "use strict";
 const { PluginManager } = require('./PluginManager.js');
 const {app, BrowserWindow, ipcMain, Menu } = require('electron');
-const {viewIndex,templateMenu} = require('./index');
+const {viewIndex,templateMenu, templateMenuQr} = require('./index');
 const path = require('path');
 const fs = require('fs');
 
@@ -25,11 +25,20 @@ function madeMainWindow(){
 			.then(app.quit)
 			.catch(e => console.log(e))
 	})
+
+	var menu = Menu.buildFromTemplate(templateMenuQr);
+	Menu.setApplicationMenu(menu);
 };
 
 function webContentsSend(channel = new String(), args){
 	win.webContents.send(channel, args)
 }
+
+ipcMain.on('Close',function(){
+	client.destroy()
+		.then(app.relaunch)
+		.catch(err => console.log(err));
+});
 
 app.on('ready', madeMainWindow)
 
@@ -66,7 +75,7 @@ client.on('qr', function(qr){
 client.on('ready',function(){
 	win.loadURL(viewIndex[0]);
 	
-	const menu = Menu.buildFromTemplate(templateMenu);
+	menu = Menu.buildFromTemplate(templateMenu);
 	Menu.setApplicationMenu(menu);
 
 	const files_plugins_name = path.join(__dirname,'views','main','files_plugin.json');

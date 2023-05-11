@@ -44,3 +44,11 @@ main img{
     animation-timing-function: linear;
     /* outline: 1px solid red; */
 }
+
+#btb-cerrar{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
