@@ -1,19 +1,19 @@
-async function interfaz(message,client,webContentsSend){
+async function interfaz(message, client, webContentsSend) {
 
     let msg = {
         constact: await message.getContact(),
-        chat: msg.isStatus ? {name:'Status'} : await message.getChat(),
+        chat: await message.getChat(),
         body: message.body
     }
 
     let msg_media = {
         constact: await message.getContact(),
-        chat: msg.isStatus ? {name:'Status'} : await message.getChat(),
+        chat: msg.isStatus ? { name: 'Status' } : await message.getChat(),
         body: message.body,
         media: await message.downloadMedia()
     }
 
-    message.hasMedia ? webContentsSend("MEDIA", msg_media) : webContentsSend("MESSAGE", msg) ;
+    message.hasMedia ? webContentsSend("MEDIA", msg_media) : webContentsSend("MESSAGE", msg);
 }
 
 exports.module = interfaz;

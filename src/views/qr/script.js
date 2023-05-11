@@ -4,15 +4,19 @@ const canvas = document.getElementById('canvas');
 const buffering = document.getElementById('buffering');
 const btnCerrar = document.getElementById('btb-cerrar');
 
-btnCerrar.addEventListener('click', function(){
+btnCerrar.addEventListener('click', function () {
     ipcRenderer.send("Close");
 });
 
-ipcRenderer.on('QR',function(event,qr){
+ipcRenderer.on('HideCanvas', function () {
+    canvas.hidden = true;
+});
+
+ipcRenderer.on('QR', function (event, qr) {
 
     buffering.hidden = true;
 
-    qrcode.toCanvas(canvas,qr,err=>{
+    qrcode.toCanvas(canvas, qr, err => {
         console.log(err)
     });
 })

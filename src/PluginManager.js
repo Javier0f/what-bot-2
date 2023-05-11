@@ -4,20 +4,19 @@ const path = require('path');
 
 
 class PluginManager {
-    constructor(cliente) {
-        this.client = cliente;
+    constructor() {
         this.plugins = [];
         this.files = [];
     }
 
-    loadPlugins(){
+    loadPlugins() {
         const pluginsDir = path.join(__dirname, "plugins");
-        const pluginsFile = fs.readdirSync(pluginsDir,{encoding:'utf-8'});
+        const pluginsFile = fs.readdirSync(pluginsDir, { encoding: 'utf-8' });
 
         this.files = pluginsFile
 
         var newLisplugins = [];
-        pluginsFile.forEach( file => {
+        pluginsFile.forEach(file => {
             const pluginPath = path.join(__dirname, "plugins", file);
 
             delete require.cache[require.resolve(pluginPath)];
@@ -27,9 +26,6 @@ class PluginManager {
         })
 
         this.plugins = newLisplugins;
-    };
-    refreshPlugins(){
-        this.loadPlugins()
     };
 }
 
