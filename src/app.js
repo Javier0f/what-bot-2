@@ -82,6 +82,7 @@ client.on('ready', function () {
 
 client.on('message', function (msg) {
 
+
 	msg.getContact().then(function (chat) {
 		chat.id.user
 	})
